@@ -1,0 +1,57 @@
+USE TaskDatabase
+INSERT INTO employee (SSN, FNAME, LNAME, GENDER, BIRTHDATE, SUPERSSN, DNUM)
+VALUES ('123456789', 'Suhaila', 'Alghailani', 'F', '2000-01-25', NULL, NULL);
+
+
+INSERT INTO department (DNUM, DNAME, SSN, MHDATE)
+VALUES (1, 'C and P', '123456789', '2015-06-21');
+
+
+UPDATE employee SET DNUM = 1 WHERE SSN = '123456789';
+
+
+
+INSERT INTO employee (SSN, FNAME, LNAME, GENDER, BIRTHDATE, SUPERSSN, DNUM)
+VALUES 
+('987654321', 'Khalid', 'Alfarsi', 'M', '1998-04-20', '123456789', 1),
+('121234345', 'Reem', 'Alsinani', 'F', '1999-08-22', '123456789', 1);
+
+
+
+INSERT INTO employee (SSN, FNAME, LNAME, GENDER, BIRTHDATE, SUPERSSN, DNUM)
+VALUES 
+('343421215', 'Lian', 'Allawati', 'F', '2001-03-25', '123456789', 1),
+('545465659', 'Salma', 'Albalushi', 'F', '2001-08-12', '123456789', 1);
+
+
+INSERT INTO dependent (Name, SSN, GENDER, BIRTHDATE)
+VALUES 
+('Suhaila Alghilani', '123456789', 'F', '2000-01-25'),
+('Salam Albalushi', '545465659', 'F', '2001-08-12');
+
+
+
+DELETE FROM dependent
+WHERE Name = 'Salma Albalushi';
+
+INSERT INTO DEARTMENTLOC (LOCATION, DNUM)
+VALUES 
+('HQ Nazdaher A', 1);
+
+
+INSERT INTO PROJECT (PNUMBER, PNAME, LOCATION, CITY, DNUM)
+VALUES 
+(101, 'Image generator', 'HQ Nazdaher A', 'Muscat', 1),
+(102, 'Report analysis', 'HQ Nazdaher A', 'Muscat', 1);
+
+
+INSERT INTO WORKON (SSN, PNUMBER, WORKINGHOUR)
+VALUES 
+('123456789', 101, 30),
+('545465659', 101, 25),
+('987654321', 102, 40);
+
+
+UPDATE WORKON
+SET WORKINGHOUR = 55
+WHERE SSN = '987654321' AND PNUMBER = 102;
